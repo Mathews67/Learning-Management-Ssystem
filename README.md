@@ -1,10 +1,8 @@
-Here's a complete README for the Learning Management System (LMS) project:
 
----
 
 # Learning Management System (LMS)
 
-This Learning Management System (LMS) is a web-based application designed to help administrators and teachers manage students, teachers, and various academic data effectively. The application includes features for managing users, adding and viewing teachers, and tracking basic statistics through a user-friendly dashboard.
+This Learning Management System (LMS) is a web-based application designed to help administrators and teachers manage students, teachers, and various academic data effectively. The application includes features for managing users, adding and viewing teachers, tracking statistics, and enabling students to view their academic results through a user-friendly dashboard.
 
 ## Table of Contents
 - [Project Overview](#project-overview)
@@ -26,7 +24,9 @@ The LMS provides a responsive and intuitive dashboard for Admin users to manage 
 - Add new teachers
 - Manage user roles and permissions
 
-The system is developed using PHP for server-side logic, MySQL for database management, and Bootstrap for styling. 
+Additionally, students can view their grades, subjects, and results once published by the teacher, enabling a transparent academic performance tracking system.
+
+The system is developed using PHP for server-side logic, MySQL for database management, and Bootstrap for styling.
 
 ## Features
 
@@ -34,6 +34,8 @@ The system is developed using PHP for server-side logic, MySQL for database mana
 - **Admin Dashboard**: Admin users can view key statistics and manage teachers and students.
 - **Manage Teachers**: Admins can view, add, and edit teacher profiles.
 - **View Pupils**: Admins can view and manage pupils.
+- **Results Management**: Teachers can add grades for students, which students can then view in their profile once published.
+- **Student Dashboard**: Students can view their grades, subjects, and results, including any recent updates to their academic records.
 - **Charts and Analytics**: Pie charts show summaries for quick insights into the distribution of teachers and pupils.
 - **Responsive Design**: Optimized layout for various screen sizes, enhancing user experience on both desktop and mobile devices.
 
@@ -84,8 +86,10 @@ The system is developed using PHP for server-side logic, MySQL for database mana
 2. **Admin Dashboard**: 
    - View total number of teachers and pupils.
    - Access the `Manage Teachers` section to add, edit, or delete teachers.
-3. **Settings**: Customize additional settings (e.g., theme mode) through the settings page.
-4. **Logout**: Securely end the session and return to the login page.
+3. **Student Dashboard**: 
+   - Students can log in to view their grades, subjects, and results. Results are updated and visible once published by the teachers.
+4. **Settings**: Customize additional settings (e.g., theme mode) through the settings page.
+5. **Logout**: Securely end the session and return to the login page.
 
 ---
 
@@ -98,6 +102,7 @@ The system is developed using PHP for server-side logic, MySQL for database mana
   - `login.php`: Login page.
   - `view_teachers.php`: View all registered teachers.
   - `add_teacher.php`: Add a new teacher.
+  - `student_dashboard.php`: Displays student's subjects, grades, and published results.
   - `settings.php`: Adjust settings such as theme mode.
 - **partials/**: Contains reusable components like header, footer, and sidebar.
 - **database/**: Contains database scripts for initial setup.
@@ -125,10 +130,17 @@ The LMS database (`lms_db`) consists of the following tables:
    - `first_name`: VARCHAR, Pupil first name
    - `last_name`: VARCHAR, Pupil last name
    - `class_id`: INT, Foreign key to `class`
-
+   
 4. **class**: Stores class details.
    - `classID`: INT, Primary Key
    - `name`: VARCHAR, Class name
+
+5. **results**: Stores student grades and published results.
+   - `resultID`: INT, Primary Key
+   - `pupilID`: INT, Foreign Key to `pupil`
+   - `subject`: VARCHAR, Name of the subject
+   - `grade`: VARCHAR, Student’s grade for the subject
+   - `published`: BOOLEAN, Flag indicating if the result is visible to students
 
 ---
 
@@ -147,7 +159,7 @@ Contributions are welcome! To contribute:
 
 This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for details.
 
-
+---
 
 ## Acknowledgments
 
@@ -156,3 +168,4 @@ Special thanks to the open-source libraries and tools that made this project pos
 - [Bootstrap](https://getbootstrap.com/)
 - [Font Awesome](https://fontawesome.com/)
 
+---
