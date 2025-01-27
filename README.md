@@ -2,7 +2,7 @@
 
 # Learning Management System (LMS)
 
-This Learning Management System (LMS) is a web-based application designed to help administrators and teachers manage students, teachers, and various academic data effectively. The application includes features for managing users, adding and viewing teachers, tracking statistics, and enabling students to view their academic results through a user-friendly dashboard.
+This Learning Management System (LMS) is a web-based application designed to help administrators and teachers manage students, teachers, and various academic data effectively. The application includes features for managing users, adding and viewing teachers, tracking statistics, and enabling students to view their academic results through a user-friendly dashboard. profuse
 
 ## Table of Contents
 - [Project Overview](#project-overview)
